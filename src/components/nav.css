@@ -1,0 +1,17 @@
+html{
+      font-family: Roboto !important;
+}
+nav{
+    font-size: 17.1px;
+    font-weight: 200;
+}
+nav a:hover{
+   background: #D1EFB5;
+}
+.flex-hijo{
+    justify-content: space-around;
+    flex-grow: .4;
+}
+.flex-hijo a{
+    font-weight: bold;
+}
