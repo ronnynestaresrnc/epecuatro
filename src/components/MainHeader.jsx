@@ -62,10 +62,22 @@ const MainHeader = () => {
             </li>
 
             <li className="nav-item">
-              <a className="nav-link text-dark ">Galeria</a>
+              <NavLink
+                tag={RRNavLink}
+                to="/crud"
+                className="nav-link font-weight-bold text-dark "
+              >
+                Crud
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-dark ">Personajes</a>
+              <NavLink
+                tag={RRNavLink}
+                to="/detalles-maestro"
+                className="nav-link font-weight-bold text-dark "
+              >
+                Detalles Maestro
+              </NavLink>
             </li>
 
             <li>
