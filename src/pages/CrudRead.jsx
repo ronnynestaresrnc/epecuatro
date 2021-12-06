@@ -24,7 +24,7 @@ const CrudRead = () => {
       .then((res) => {
         (async () => {
           const { data } = await axios.get(
-            `http://androidep.herokuapp.com/courses`
+            `https://androidep.herokuapp.com/courses`
           );
 
           setCurso(data);
