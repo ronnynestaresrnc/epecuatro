@@ -41,7 +41,7 @@ const MainHeader = () => {
                 to="/crud-read"
                 className="nav-link font-weight-bold text-dark "
               >
-                Crud Readss
+                Crud Read
               </NavLink>
             </li>
             <li className="nav-item dropdown">
