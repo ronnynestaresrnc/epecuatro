@@ -26,7 +26,7 @@ const CrudEdit = () => {
     console.log(refNombre.current.value);
 
     axios
-      .put(`http://androidep.herokuapp.com/courses/${id}`, {
+      .put(`https://androidep.herokuapp.com/courses/${id}`, {
         nombre: refNombre.current.value,
         tutor: refTutor.current.value,
         duracion: refDuracion.current.value,
