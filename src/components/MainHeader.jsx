@@ -36,9 +36,13 @@ const MainHeader = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link font-weight-bold text-dark ">
-                Informacion
-              </a>
+              <NavLink
+                tag={RRNavLink}
+                to="/crud-read"
+                className="nav-link font-weight-bold text-dark "
+              >
+                Crud Read
+              </NavLink>
             </li>
             <li className="nav-item dropdown">
               <a
