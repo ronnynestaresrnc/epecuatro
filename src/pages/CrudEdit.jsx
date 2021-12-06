@@ -43,7 +43,7 @@ const CrudEdit = () => {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
-        `http://androidep.herokuapp.com/courses/${id}`
+        `https://androidep.herokuapp.com/courses/${id}`
       );
 
       setCurso(data);

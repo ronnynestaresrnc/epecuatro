@@ -33,7 +33,7 @@ const CrudAdd = () => {
     console.log(refNombre.current.value);
 
     axios
-      .post("http://androidep.herokuapp.com/add", {
+      .post("https://androidep.herokuapp.com/add", {
         nombre: refNombre.current.value,
         tutor: refTutor.current.value,
         duracion: refDuracion.current.value,
