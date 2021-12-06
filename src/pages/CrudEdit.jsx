@@ -55,7 +55,7 @@ const CrudEdit = () => {
       <div className="container">
         <div className="row">
           <div className="col-6 mx-auto">
-            <h2 className="mb-4">Editar Curso</h2>
+            <h2 className="mb-4">Editar Curso :</h2>
             {curso.map((item) => (
               <Form className="mx-auto" key={item.id} onSubmit={handleSubmit}>
                 <FormGroup>
