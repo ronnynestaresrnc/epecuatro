@@ -8,7 +8,7 @@ const CrudRead = () => {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
-        `http://androidep.herokuapp.com/courses`
+        `https://androidep.herokuapp.com/courses`
       );
 
       setCurso(data);
@@ -19,15 +19,17 @@ const CrudRead = () => {
   const eliminarItem = ({ id }) => {
     console.log(id);
 
-    axios.delete(`https://androidep.herokuapp.com/courses/${id}`).then((res) => {
-      (async () => {
-        const { data } = await axios.get(
-          `http://androidep.herokuapp.com/courses`
-        );
+    axios
+      .delete(`https://androidep.herokuapp.com/courses/${id}`)
+      .then((res) => {
+        (async () => {
+          const { data } = await axios.get(
+            `http://androidep.herokuapp.com/courses`
+          );
 
-        setCurso(data);
-      })();
-    });
+          setCurso(data);
+        })();
+      });
   };
 
   return (
