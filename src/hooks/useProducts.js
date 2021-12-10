@@ -7,8 +7,8 @@ const useProducts = () => {
       const { data } = await axios.get(
         "https://servicios.campus.pe/servicioproveedores.php"
       );
-      console.log(data);
-      setCharacters(data.results);
+
+      setCharacters(data);
     })();
   }, []);
 
