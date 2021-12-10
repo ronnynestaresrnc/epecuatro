@@ -1,79 +1,105 @@
-import { Carousel } from "bootstrap";
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import banner1 from "./../assets/mbanner_uno.jpg";
-import banner2 from "./../assets/mbanner_dos.jpg";
-import banner3 from "./../assets/mbanner_tres.jpg";
-import banner4 from "./../assets/mbanner_cuatro.jpg";
 import {
-  CarouselCaption,
   CarouselControl,
-  CarouselIndicators,
+  Carousel,
   CarouselItem,
+  CarouselIndicators,
 } from "reactstrap";
-const BannerHome = () => {
+import banner1 from "../assets/banner1.jpg";
+import banner2 from "../assets/banner2.jpg";
+
+import "./bannerHome.css";
+function BannerHome() {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  const [animating, setAnimating] = React.useState(false);
+
+  const items = [
+    {
+      src: banner1,
+      altText: "Slide One",
+    },
+    {
+      src: banner2,
+      altText: "Slide Two",
+    },
+  ];
+
+  const itemLength = items.length - 1;
+
+  const previousButton = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? itemLength : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const nextButton = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === itemLength ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const carouselItemData = items.map((item) => {
+    return (
+      <CarouselItem
+        key={item.src}
+        onExited={() => setAnimating(false)}
+        onExiting={() => setAnimating(true)}
+      >
+        <img src={item.src} alt={item.altText} />
+      </CarouselItem>
+    );
+  });
+
   return (
-    <Carousel
-      activeIndex={0}
-      next={function noRefCheck() {}}
-      previous={function noRefCheck() {}}
-    >
-      <CarouselIndicators
-        activeIndex={0}
-        items={[
-          {
-            altText: "Slide 1",
-            caption: "Slide 1",
-            key: 1,
-            src: banner1,
-          },
-          {
-            altText: "Slide 2",
-            caption: "Slide 2",
-            key: 2,
-            src: banner2,
-          },
-          {
-            altText: "Slide 3",
-            caption: "Slide 3",
-            key: 3,
-            src: banner4,
-          },
-        ]}
-        onClickHandler={function noRefCheck() {}}
-      />
-      <CarouselItem
-        onExited={function noRefCheck() {}}
-        onExiting={function noRefCheck() {}}
+    <div className="banner-padre">
+      <Carousel
+        previous={previousButton}
+        next={nextButton}
+        activeIndex={activeIndex}
       >
-        <img alt="Slide 1" src="https://picsum.photos/id/123/1200/600"></img>
-        <CarouselCaption captionHeader="Slide 1" captionText="Slide 1" />
-      </CarouselItem>
-      <CarouselItem
-        onExited={function noRefCheck() {}}
-        onExiting={function noRefCheck() {}}
-      >
-        <img alt="Slide 2" src="https://picsum.photos/id/456/1200/600"></img>
-        <CarouselCaption captionHeader="Slide 2" captionText="Slide 2" />
-      </CarouselItem>
-      <CarouselItem
-        onExited={function noRefCheck() {}}
-        onExiting={function noRefCheck() {}}
-      >
-        <img alt="Slide 3" src="https://picsum.photos/id/678/1200/600"></img>
-        <CarouselCaption captionHeader="Slide 3" captionText="Slide 3" />
-      </CarouselItem>
-      <CarouselControl
-        direction="prev"
-        directionText="Previous"
-        onClickHandler={function noRefCheck() {}}
-      />
-      <CarouselControl
-        direction="next"
-        directionText="Next"
-        onClickHandler={function noRefCheck() {}}
-      />
-    </Carousel>
+        <CarouselIndicators
+          items={items}
+          className="btn-indicador"
+          activeIndex={activeIndex}
+          onClickHandler={(newIndex) => {
+            if (animating) return;
+            setActiveIndex(newIndex);
+          }}
+        />
+        {carouselItemData}
+        <div className="carousel-caption d-none d-md-block  caja-hija container text-start">
+          <div className="contsainer mb-4">
+            <h5 className="h1 " style={{ fontSize: "5rem " }}>
+              Businesss
+            </h5>
+          </div>
+          <div className="cocntainer custom-o">
+            <p className="banner-p">
+              Contrary to popular belief, Lorem ipsum is not simply random text
+              it has roots in a piece of classical latin literature
+            </p>
+          </div>
+          <button
+            className="custom-btn btn  btn-primary mt-5"
+            style={{ borderRadius: "150px 210px 210px 190px " }}
+          >
+            Contact US
+          </button>
+        </div>
+        <CarouselControl
+          directionText="Prev"
+          direction="prev"
+          onClickHandler={previousButton}
+        />
+        <CarouselControl
+          directionText="Next"
+          direction="next"
+          onClickHandler={nextButton}
+        />
+      </Carousel>
+    </div>
   );
-};
+}
+
 export default BannerHome;

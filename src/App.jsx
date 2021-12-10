@@ -11,6 +11,7 @@ import MyFooter from "./components/MyFooter";
 import CrudAdd from "./pages/CrudAdd";
 import CrudRead from "./pages/CrudRead";
 import CrudEdit from "./pages/CrudEdit";
+import PageNew from "./pages/PageNew";
 
 function App() {
   return (
@@ -24,7 +25,9 @@ function App() {
         <Route path="/crud" element={<CrudAdd />} />
         <Route path="/crud-read" element={<CrudRead />} />
         <Route path="/crud-editar/:id" element={<CrudEdit />} />
+        <Route path="/service" element={<PageNew />} />
       </Routes>
+
       <MyFooter></MyFooter>
     </div>
   );

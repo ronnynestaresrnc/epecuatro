@@ -1,0 +1,36 @@
+.btn-indicador {
+  border-radius: 50px  !important;
+
+  background: rgb(221, 126, 213);
+
+  width:70px !important;
+  hegth:51445px !important;
+margin:auto !important;
+}
+.custom-o{
+
+   width: 750px !important;
+   text-align: justify !important;
+   font-size: 26px !important;
+    color: azure !important;
+}
+.custom-btn{
+      
+              background-color:  rgb(219, 49, 120)   !important;
+              font-size: 19.8px !important;
+              width:180px;
+              border: none !important;
+          
+              height:60px !important;
+   
+}
+.banner-padre{
+  display: absolute;
+  height: 600px;
+}
+.caja-hija{
+bottom: 40px !important;
+  right: 0;
+  left: 111px !important;
+  position: relative;
+}
